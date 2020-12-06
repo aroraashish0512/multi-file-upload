@@ -23,7 +23,7 @@ router.post('/multifileupload', function (req, res) {
         fs.mkdirSync(newPath);
       }
       var singleImg = imgArray[i];
-      newPath += Date.now() + "==" + singleImg.originalFilename;
+      newPath += Date.now() + "-" + singleImg.originalFilename;
       readAndWriteFile(singleImg, newPath);
     }
     console.log(fields);
@@ -42,7 +42,7 @@ router.post('/multifileupload', function (req, res) {
 });
 
 router.get('/pdf', function (req, res) {
-  res.render('csvpdf/pdf', { layout: 'frontlayout', errors: '', title: "CSV" });
+  res.render('csvpdf/pdf', { layout: 'frontlayout', errors: '', title: "Export PDF" });
 });
 
 // Generate PDF as per entered content in the form
